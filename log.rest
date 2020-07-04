@@ -1,0 +1,15 @@
+POST http://localhost:1337/api/logs
+Content-Type: application/json
+
+{
+  "title": "mooo",
+  "latitude": "40.33333",
+  "longitude": "-73.444",
+  "comments": "moooooo",
+  "visitDate": "2020-07-01T03:46:11.813Z",
+  "rating": 7
+}
+###
+
+GET http://localhost:1337/api/logs/
+Content-Type: application/json

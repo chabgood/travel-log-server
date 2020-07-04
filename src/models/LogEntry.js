@@ -1,0 +1,40 @@
+const mongoose = require('mongoose')
+
+const { Schema } = mongoose
+
+const requiredNumber = {
+  type: Number,
+  required: true
+}
+
+const logEntrySchema = new Schema(
+  {
+    title: {
+      type: String,
+      required: true
+    },
+    description: String, // String is shorthand for {type:}
+    body: String,
+    latitude: requiredNumber,
+    longitude: requiredNumber,
+    comments: String,
+    rating: {
+      type: Number,
+      min: 0,
+      max: 10,
+      default: 0
+    },
+    visitDate: {
+      type: Date,
+      required: true
+    },
+    image: String
+  },
+  {
+    timestamps: true
+  }
+)
+
+const LogEntry = mongoose.model('LogEntry', logEntrySchema)
+
+module.exports = LogEntry
